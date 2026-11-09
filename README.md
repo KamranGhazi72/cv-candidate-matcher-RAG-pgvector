@@ -25,7 +25,7 @@ The project strictly enforces **Hexagonal Architecture (Clean Architecture)** pr
 ```
                     ┌─────────────────────────────────────────────────────────┐
                     │               REST Controller Adapters                  │
-                    │      (/api/v1/jobs , /api/v1/candidates)               │
+                    │      (/api/v1/jobs , /api/v1/candidates)                │
                     └────────────────────────────┬────────────────────────────┘
                                                  │
                                                  ▼
@@ -75,8 +75,8 @@ The project strictly enforces **Hexagonal Architecture (Clean Architecture)** pr
 
 ```
 [Candidate Resume PDF] ──► [PdfDocumentParser] ──► [TokenTextSplitter] ──► [Ollama Embedding] ──► [PostgreSQL pgvector]
-                                                                                                          │
-                                                                                                          ▼
+                                                                                                           │
+                                                                                                           ▼
 [HR Job Posting] ───────► [Vector Search Query] ◄──────────────────────────────────────────────────────────┘
                                 │
                                 ▼
