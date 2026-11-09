@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: cv-candidate-matcher
+
+  # PostgreSQL
+  datasource:
+    url: jdbc:postgresql://localhost:5432/cv_matcher_db
+    username: matcher_user
+    password: matcher_password
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+  ai:
+    ollama:
+      base-url: http://localhost:11434
+      chat:
+        options:
+          model: llama3.2:1b
+          num-ctx: 4096
+          num-predict: 1024
+          temperature: 0.2
+      embedding:
+        options:
+          model: nomic-embed-text
+
+    vectorstore:
+      pgvector:
+        index-type: HNSW
+        distance-type: COSINE_DISTANCE
+        dimensions: 768 
